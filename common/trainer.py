@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 class Trainer:
     def __init__(self, network, x_train, t_train, x_test, t_test,
