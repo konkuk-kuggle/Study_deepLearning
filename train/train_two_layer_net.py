@@ -1,7 +1,6 @@
 # coding: utf-8
 import sys, os
-sys.path.append(os.pardir)
-print(sys.path)
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))  # Add parent directory to path
 import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.datasets import mnist

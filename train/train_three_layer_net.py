@@ -1,3 +1,5 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))  # Add parent directory to path
 from common.trainer import Trainer
 from common.data_loader import load_mnist
 from networks.three_layer_net import ThreeLayerNet
