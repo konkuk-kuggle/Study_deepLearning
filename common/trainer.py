@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 class Trainer:
     def __init__(self, network, x_train, t_train, x_test, t_test,
@@ -28,7 +29,9 @@ class Trainer:
         print(f"미니배치 크기: {self.batch_size}")
         print(f"학습률: {self.learning_rate}")
         print(f"은닉층 크기: {', '.join(str(self.network.params[f'W{i}'].shape[1]) for i in range(1, len(self.network.params)//2))}\n")
-        
+
+        start = time.time()
+        print(f"시작 시간: {start}") # 1970년 1월 1일 00:00:00 (UTC) 를 기준으로 경과된 시간
         for i in range(self.total_iters):
             batch_mask = np.random.choice(self.train_size, self.batch_size)
             x_batch = self.x_train[batch_mask]
@@ -44,8 +47,11 @@ class Trainer:
             
             if i % self.iter_per_epoch == 0:
                 self._print_progress(i, loss)
-                
+
+        end = time.time()
+        print(f"종료 시간: {end}")  
         print("\n학습이 완료되었습니다!")
+        print(f"학습에 소요된 시간: {end-start:.2f}초\n")
         print(f"최종 훈련 정확도: {self.train_acc_list[-1]:.4f}")
         print(f"최종 테스트 정확도: {self.test_acc_list[-1]:.4f}")
     
