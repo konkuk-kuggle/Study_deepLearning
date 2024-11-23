@@ -49,22 +49,6 @@ class FiveLayerNet:
         accuracy = np.sum(y == t) / float(x.shape[0])
         return accuracy
         
-    def numerical_gradient(self, x, t):
-        loss_W = lambda W: self.loss(x, t)
-        
-        grads = {}
-        grads['W1'] = numerical_gradient(loss_W, self.params['W1'])
-        grads['b1'] = numerical_gradient(loss_W, self.params['b1'])
-        grads['W2'] = numerical_gradient(loss_W, self.params['W2'])
-        grads['b2'] = numerical_gradient(loss_W, self.params['b2'])
-        grads['W3'] = numerical_gradient(loss_W, self.params['W3'])
-        grads['b3'] = numerical_gradient(loss_W, self.params['b3'])
-        grads['W4'] = numerical_gradient(loss_W, self.params['W4'])
-        grads['b4'] = numerical_gradient(loss_W, self.params['b4'])
-        grads['W5'] = numerical_gradient(loss_W, self.params['W5'])
-        grads['b5'] = numerical_gradient(loss_W, self.params['b5'])
-        
-        return grads
         
     def gradient(self, x, t):
         W1, W2, W3, W4, W5 = self.params['W1'], self.params['W2'], self.params['W3'], self.params['W4'], self.params['W5']
