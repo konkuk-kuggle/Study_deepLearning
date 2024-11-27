@@ -15,6 +15,6 @@ network = FourLayerNet(input_size=784,
                       output_size=10)
 
 # 학습 실행
-trainer = Trainer(network, x_train, t_train, x_test, t_test, epochs=100)
+trainer = Trainer(network, x_train, t_train, x_test, t_test, batch_size=100, epochs=100,learning_rate=0.1)
 trainer.train()
 trainer.plot()
